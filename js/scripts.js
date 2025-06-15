@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     smooth: 3,
     effects: true,
     smoothTouch: 0.1,
-    normalizeScroll: true
+    normalizeScroll: false
   });
 
   // smooth link to same page 
