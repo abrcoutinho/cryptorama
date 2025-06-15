@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     y: 0,
     opacity: 1,
     duration: 1.5,
-    ease: 'power4.in',
+    ease: 'power4',
     scrollTrigger: {
       trigger: ".about div:first-of-type",
       start: "top 90%",
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     y: 0,
     opacity: 1,
     duration: 1.5,
-    ease: 'power4.in',
+    ease: 'power4',
     scrollTrigger: {
       trigger: ".about div:first-of-type",
       start: "top 50%",
