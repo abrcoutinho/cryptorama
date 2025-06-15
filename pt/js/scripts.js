@@ -200,9 +200,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     content: '.content',
     smooth: 3,
     effects: true,
-    smoothTouch: 0.1,
-    normalizeScroll: false
+    normalizeScroll: true,
+    smoothTouch: 0.1
   });
+
+  let mm = gsap.matchMedia();
+
+  // normalize scroll for touch media
+  // mm.add("(max-width: 1024)", () => {
+  //   if (ScrollTrigger.isTouch === 1) {
+  //     ScrollSmoother.smoothTouch(0.1);
+  //     ScrollTrigger.normalizeScroll(true);
+  //   }
+  // });
+
 
   // smooth link to same page 
   gsap.utils.toArray(".menu a").forEach(function (button, i) {
@@ -211,11 +222,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       console.log(id);
       smoother.scrollTo(id, true, "top top");
       e.preventDefault();
+      // if (event.cancelable) {
+      //   e.preventDefault();
+      // }
     });
   });
-
-
-  let mm = gsap.matchMedia();
 
 
   // menu
@@ -415,6 +426,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
   // crypto cards
+
+    // desk
   mm.add("(min-width: 64.1rem)", () => {
 
     gsap.to(".benefits", {
@@ -567,39 +580,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  mm.add("(min-width: 40.1rem) and (max-width: 64.09rem)", () => {
-    gsap.to(".benefits .col-2 > div", {
-      x: '-20%',
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".benefits .col-2",
-        start: "top 80%",
-        end: "top 0%",
-        scrub: 1,
-        markers: false
-      }
-    });
-  });
-
-  mm.add("(max-width: 40rem)", () => {
+    // tablet & phone
+  mm.add("(max-width: 64rem)", () => {
     gsap.to(".benefits .col-1", {
       x: '-110%',
       ease: "none",
       scrollTrigger: {
         trigger: ".benefits .col-1",
-        start: "top 80%",
-        end: "top 0%",
+        start: "top 90%",
+        end: "top -50%",
         scrub: 1,
         markers: false
       }
     });
     gsap.to(".benefits .col-2 > div", {
-      x: '40%',
+      x: '110%',
       ease: "none",
       scrollTrigger: {
         trigger: ".benefits .col-2",
         start: "top 80%",
-        end: "top 0%",
+        end: "top -50%",
         scrub: 1,
         markers: false
       }
