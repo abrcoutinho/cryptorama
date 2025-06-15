@@ -201,7 +201,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     smooth: 3,
     effects: true,
     normalizeScroll: true,
-    smoothTouch: 0.1
+    ignoreMobileResize: true,
+    smoothTouch: 0.01
+    // allowNativeTouchScrolling: false,
+    // dragClickables: true,
+    // onPress: function(e) {
+    //   if (e.cancelable) e.preventDefault();
+    // }
   });
 
   let mm = gsap.matchMedia();
@@ -218,13 +224,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // smooth link to same page 
   gsap.utils.toArray(".menu a").forEach(function (button, i) {
     button.addEventListener("click", (e) => {
+      // addEventListener('touchmove', e, { passive: false });
       var id = e.target.getAttribute("href");
       console.log(id);
       smoother.scrollTo(id, true, "top top");
-      e.preventDefault();
-      // if (event.cancelable) {
-      //   e.preventDefault();
-      // }
+      if (e.cancelable) {
+        e.preventDefault();
+      }
     });
   });
 
